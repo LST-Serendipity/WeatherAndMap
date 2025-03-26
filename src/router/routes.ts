@@ -1,4 +1,3 @@
-import { Title } from 'chart.js';
 
 export const constantRoute=[
     {
@@ -6,25 +5,46 @@ export const constantRoute=[
         name:'home',
         component:()=>import('@/view/home/index.vue'),
         meta:{
-            title:'主页'
+            title:'主页',
+            
         }
     },
     {
         path:'/weather',
         name:'weather',
-        component:()=>import('@/view/weather/index.vue'),
+        component:()=>import('@/view/queryweather/index.vue'),
         meta:{
             title:'天气'
         },
         
-        
+      
     },
     {
-        path:'/weather/displayView',
+        path:'/displayView',
         name:'displayView',
-        component:()=>import('@/view/weather/displayView/index.vue'),
+        component:()=>import('@/view/displayView/index.vue'),
         meta:{
             title:''
+        },
+        children:[
+            {
+                path:'/dispalyMapWea',
+                name:'dispalyMapWea',
+                component:()=>import('@/view/displayView/diaplaymapWea/index.vue'),
+                meta:{
+                    title:'显示天气地图'
+                },
+            }
+        ]
+        
+    },
+    
+    {
+        path:'/seeMap',
+        name:'seeMap',
+        component:()=>import('@/view/seeMap/index.vue'),
+        meta:{
+            title:'查看地图'
         }
         
     }

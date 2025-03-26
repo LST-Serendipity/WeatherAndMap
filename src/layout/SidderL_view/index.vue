@@ -1,9 +1,12 @@
 <template>
     <div class="sidderL">
-        <h2>天气查询</h2>
+        <h2>查询</h2>
         <div>
             <ul class="nav_sidderL">
-                <li v-for="item in router_sidderL" :key="item.path" @click="goWay(item)" v-show="item.meta.title"><button>{{ item.meta.title }}</button></li>
+                <li v-for="item in router_sidderL" :key="item.path" @click="goWay(item)" v-show="item.meta.title">
+                    
+                    <button>{{ item.meta.title }}</button>
+                </li>
             </ul>
         </div>
     </div>
@@ -27,6 +30,7 @@
 
 <style scoped >
     .sidderL{
+        overflow: hidden;
         h2{
             text-align: center;
             margin: 5px 0;

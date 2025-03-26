@@ -1,4 +1,4 @@
-import axios, { Axios } from "axios";
+import axios from "axios";
 // 引入api
 const key=import.meta.env.VITE_OPENWEATHER_API_KEY
 

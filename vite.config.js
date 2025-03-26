@@ -9,7 +9,9 @@ export default defineConfig({
   plugins: [
     vue(),
     vueDevTools(),
+    
   ],
+  base:'/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
@@ -17,7 +19,8 @@ export default defineConfig({
   },
   define: {
     'import.meta.env': {
-      VITE_OPENWEATHER_API_KEY: JSON.stringify(process.env.VITE_OPENWEATHER_API_KEY)
+      VITE_OPENWEATHER_API_KEY: JSON.stringify(process.env.VITE_OPENWEATHER_API_KEY),
+      VITE_TIANDITU_API_KEY: JSON.stringify(process.env.VITE_TIANDITU_API_KEY)
     }
   }
 })

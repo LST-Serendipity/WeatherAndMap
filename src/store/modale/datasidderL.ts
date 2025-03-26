@@ -1,13 +1,14 @@
 import { defineStore } from "pinia";
-import {constantRoute} from '@/router/routes'
-import Request from "@/unit/request";
-
+import {constantRoute} from '@/router/routes.js'
+import Request from "@/unit/request.js";
+import * as echarts from 'echarts';
 
 
 export default defineStore('store',{
     //保存数据
     state:()=>({
         //路由数据
+        //天气请求数据
         sidderRoutes:constantRoute,
         name:'',
         weather:{},
@@ -15,7 +16,14 @@ export default defineStore('store',{
         wind:{},
         forecast:[],
         forecastTime:[],
-        forecastTemp:[]
+        forecastTemp:[],
+        //地图图层显隐数据
+        Visible:{
+            vecLayer:true,
+            cavLayer:true,
+            imgLayer:false,
+            terLayer:false,
+        }as Record<string,boolean>
        
     }),
     actions:{
@@ -101,7 +109,47 @@ export default defineStore('store',{
                 alert(err)
                 return Promise.reject(err)
             }
+        },
+        //制作图表
+        async makeChart(chartDom,myChart,forecastTime,forecastTemp) {
+            //制作图表
+            if (chartDom.value) {
+                myChart = echarts.init(chartDom.value);
+                const option = {
+                xAxis: {
+                    type: 'category',
+                    // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                    data:forecastTime
+                },
+                yAxis: {
+                    
+                    type: 'value',
+                    axisLabel: {
+                        formatter: '{value} °C'
+                    }
+                },
+                series: [{
+                    // data: [150, 230, 224, 218, 135, 147, 260],
+                    data:forecastTemp,
+                    type: 'line'
+                }]
+                };
+                myChart.setOption(option);
         }
+    
+        },
+        // 得到visible值
+        getVisible(layer:string){
+            return this.Visible[layer]||false
+        },
+        // 设置visible值
+        setVisible(layer:string,visible:boolean){
+            this.Visible[layer]=visible
+        } ,
+        // 改变图层显隐
+        togglevalue(layer:string){
+            this.Visible[layer]=!this.Visible[layer]
+        }  
 
     }
 })

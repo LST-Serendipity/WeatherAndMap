@@ -20,16 +20,22 @@
 
 <style scoped >
     .countainer{
+        position: relative;
         display: flex;
+        box-sizing: border-box;
         width: 100%;
         height: 100vh;
-        background: linear-gradient(to bottom ,rgb(239, 237, 237),rgb(199, 197, 197),rgb(155, 154, 154));
+        overflow: hidden;
+        background: linear-gradient(to bottom ,rgb(239, 237, 237),rgb(166, 229, 206),rgb(131, 189, 188),rgb(90, 128, 157),
+        rgb(93, 77, 145),rgb(114, 80, 143),rgb(126, 82, 138),rgb(145, 92, 146),rgb(132, 71, 117)
+        ,rgb(138, 89, 107));
 
         .countainerSidder{
         width: 15%;
         height: 100%;
         padding: 5px;
-        background: linear-gradient(to bottom ,rgb(136, 210, 239),rgb(146, 208, 233),rgb(90, 133, 150));
+        background-color: rgb(232, 229, 229,0.2);
+        
         
         }
 
@@ -51,7 +57,7 @@
         width: 15%;
         height: 100%;
         padding: 5px;
-        background: linear-gradient(to bottom ,rgb(136, 210, 239),rgb(146, 208, 233),rgb(90, 133, 150));
+        background-color: rgb(232, 229, 229,0.2);
         
         }
 
