@@ -1,0 +1,1 @@
+import{_ as i,c as a,o as n,ae as t}from"./chunks/framework.CDUq12U0.js";const g=JSON.parse('{"title":"API封装","description":"","frontmatter":{},"headers":[],"relativePath":"API/API.md","filePath":"API/API.md"}'),p={name:"API/API.md"};function h(l,s,e,k,r,d){return n(),a("div",null,s[0]||(s[0]=[t("",9)]))}const o=i(p,[["render",h]]);export{g as __pageData,o as default};
